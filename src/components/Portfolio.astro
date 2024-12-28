@@ -1,0 +1,23 @@
+---
+import Box from "./ui/Box.astro";
+import SectionHeading from "./ui/SectionHeading.astro";
+import { projects } from '../data';
+---
+
+<section id="portfolio" class='mb-8'>
+  <SectionHeading mainText='Portfolio' subText="What I've been up to" />
+  <div class='flex flex-col lg:flex-row gap-4'>
+    {projects.map((project) => (
+      <Box key={project.name} withPadding={false} class='w-[350px]'>
+        <div class='max-h-[175px] overflow-hidden'>
+          <img src={project.image.src} class="object-cover w-full "/>
+        </div>
+        
+        <div class='p-4'>
+          <h4 class='text-2xl mb-2 pb-2 border-b border-primary'>{project.name}</h4>
+          <p>{project.description}</p>
+        </div>
+      </Box>
+    ))}
+  </div>
+</section>

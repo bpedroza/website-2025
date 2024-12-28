@@ -1,0 +1,40 @@
+---
+import Box from "./ui/Box.astro";
+import SectionHeading from "./ui/SectionHeading.astro";
+import { jobs } from '../data';
+---
+
+<section class='text-left' id="work-history">
+  <SectionHeading mainText='Experience' subText="Where I've Been" />
+  {jobs.map((item) => (
+    <div class='mb-10 mt-4'>
+      <Box>
+        <div class="text-3xl font-bold mb-4">
+          <img class='rounded-full object-contain w-[40px] h-[40px] inline-block mr-4' src={item.icon.src} />
+          {item.name}
+          {item.subName && <span class="inline-block ml-1 text-base">({item.subName})</span>}
+        </div>
+        <time class='font-mono mb-4 italic text-left block'>
+          {item.timeSpan}
+        </time>
+        <div class='lg:flex gap-2'>
+          <div class='lg:w-1/2'>
+            <span class='text-lg font-bold border-b border-info mb-2 inline-block'>Responsibilities:</span>
+            <ul class='pl-4 list-disc mb-2'>
+              {item.responsibilities.map((responsibility) => <li>{responsibility}</li>)}
+            </ul>
+          </div>
+
+          <div class='lg:w-1/2'>
+            <span class='text-lg font-bold border-b border-accent my-2 inline-block'>Accomplishments:</span>
+            <ul class='pl-4 list-disc'>
+              {item.accomplishments.map((accomplishment) => <li>{accomplishment}</li>)}
+            </ul>
+          </div>
+
+        </div>
+
+      </Box>
+    </div>
+  ))}
+</section>

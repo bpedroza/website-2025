@@ -1,0 +1,10 @@
+---
+const {children, withPadding = true, className = '', ...props} = Astro.props;
+const classes = (withPadding ? 'px-4 py-8 ' : '') + 'content-box-inner bg-primary-content h-full';
+---
+
+<div {...props} class={`${className} bg-gradient-to-tr to-info from-accent content-box p-[1px]`}>
+  <div class={classes}>
+      <slot />
+  </div>
+</div>

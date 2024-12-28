@@ -1,11 +1,96 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Hero from "../components/Hero.astro";
+import Nav from "../components/Nav.astro";
+import Socials from "../components/Socials.astro";
+import About from "../components/About.astro";
+import WorkHistory from "../components/WorkHistory.astro";
+import Portfolio from "../components/Portfolio.astro";
+import doubleChevron from "../assets/doubleChevron.svg";
+import astroLogo from "../assets/astro.svg";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-	<Welcome />
+	<div class="h-screen flex flex-col justify-between relative">
+		<div
+			class="flex lg:flex-row flex-col py-12 px-4 md:px-12 lg:px-34 xl:px-56"
+		>
+			<aside class="lg:w-1/2 w-full lg:h-screen h-[600px]">
+				<div class="fixed">
+					<Hero />
+					<Nav />
+					<div
+						class="lg:fixed lg:block hidden lg:w-screen left-0 text-center text-slate-400"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="currentColor"
+							class="size-10 flasher inline-block"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5"></path>
+						</svg>
+					</div>
+					<div
+						class="lg:fixed left-0 mt-10 lg:w-screen lg:flex lg:justify-center"
+					>
+						<Socials />
+					</div>
+				</div>
+			</aside>
+			<main class="lg:w-1/2 w-full">
+				<div id="main-content" class="mockup-window bg-base-300 border z-[2]">
+					<div class="px-4 max-w-[1200px] mx-auto">
+						<About />
+						<WorkHistory />
+						<Portfolio />
+					</div>
+				</div>
+			</main>
+		</div>
+		<footer
+			class="py-4 px-8 sticky bottom-0 border-t border-primary bg-neutral bg-opacity-55"
+		>
+			&copy; {new Date().getFullYear()} Bryan Pedroza
+		</footer>
+	</div>
 </Layout>
+
+<script>
+	import { animateDesktop } from "../js/animation";
+
+	const mediaQuery = window.matchMedia('(max-width: 1023px)');
+	let isMobile = mediaQuery.matches;
+	const windowEl = document.getElementById('main-content');
+
+	const scrollListener = () => {
+		if (!isMobile) {
+			animateDesktop(window.scrollY, windowEl);
+		} else {
+			clearInlineStyles();
+		}
+	};
+
+	const listener = (e: MediaQueryListEvent | MediaQueryList) => {
+		isMobile = e.matches;
+		if (!isMobile) {
+			window.addEventListener("scroll", scrollListener);
+		} else {
+			clearInlineStyles();
+			window.removeEventListener("scroll", scrollListener);
+		}
+	}
+	mediaQuery.addEventListener("change", listener);
+	listener(mediaQuery);
+
+	function clearInlineStyles() {
+		if(windowEl) {
+			windowEl.style.cssText = "";
+		}
+	}
+</script>

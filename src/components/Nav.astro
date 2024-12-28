@@ -1,0 +1,31 @@
+---
+import { links } from '../data';
+---
+
+<nav>
+  <ul>
+    {links.map((link) => (
+        <li
+          class={`${link.active ? 'border-primary' : 'border-[transparent]'} border-b inline-block nav-link my-2 `}
+        >
+          <a href={`#${link.id}`}>{link.name}</a>
+        </li>
+        <li class='nav-link-spacer'></li>
+    )
+    )}
+  </ul>
+</nav>
+
+<script>
+const links = document.querySelectorAll('.nav-link');
+
+links.forEach((link) => {
+  link.addEventListener('click', function () {
+    links.forEach((linkI) => {
+      linkI.className = linkI.className.replace('border-primary', 'border-[transparent]');
+    });
+    console.log(this);
+    this.className = this.className.replace('border-[transparent]', 'border-primary');
+  });
+});
+</script>
