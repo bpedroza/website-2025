@@ -3,7 +3,7 @@ import { links } from '../data';
 ---
 
 <nav>
-  <ul>
+  <ul class="ml-9">
     {links.map((link) => (
         <li
           class={`${link.active ? 'border-primary' : 'border-[transparent]'} border-b inline-block nav-link my-2 `}
@@ -20,11 +20,24 @@ import { links } from '../data';
 const links = document.querySelectorAll('.nav-link');
 
 links.forEach((link) => {
-  link.addEventListener('click', function () {
+  const aTag = link.querySelector('a');
+  aTag?.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector(e?.target?.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+
+    const mediaQuery = window.matchMedia('(max-width: 1023px)');
+    console.log(mediaQuery.matches);
+	  if(!mediaQuery.matches) {
+      window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
+    }
+  })
+  
+  link.addEventListener('click', function (e) {
     links.forEach((linkI) => {
       linkI.className = linkI.className.replace('border-primary', 'border-[transparent]');
     });
-    console.log(this);
     this.className = this.className.replace('border-[transparent]', 'border-primary');
   });
 });

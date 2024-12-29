@@ -4,6 +4,7 @@ import avweb from '../assets/avweb.webp';
 
 import jspkce from '../assets/js-pkce-preview.jpeg';
 import evap from '../assets/evap-preview.jpeg';
+import website from '../assets/website-2025.jpeg';
 
 const links = [
   {
@@ -83,16 +84,25 @@ const jobs = [
 
 const projects = [
   {
+    name: '2025 Website',
+    image: website,
+    url: 'https://github.com/bpedroza/website-2025',
+    description: 'My new website for 2025. The one you\'re looking at now!',
+    tags: ['astro', 'tailwindcss', 'html', 'css', 'javascript']
+  },
+  {
     name: 'js-pkce',
     image: jspkce,
     url: 'https://github.com/bpedroza/js-pkce',
-    description: 'An open source project I built to help make oAuth2 PKCE flow easier.'
+    description: 'An open source project I built to help make oAuth2 PKCE flow easier.',
+    tags: ['typescript', 'jest', 'npm']
   },
   {
     name: 'Evaporative Cooler Calculator',
     image: evap,
     url: 'https://github.com/bpedroza/pwa-evap-calculator',
-    description: 'A fun little PWA that to tell me how cool my evaporative cooler would get my house'
+    description: 'A fun little PWA that to tell me how cool my evaporative cooler would get my house',
+    tags: ['vuejs', 'vuetify', 'pwa']
   }
 ];
 
