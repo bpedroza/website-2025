@@ -23,12 +23,14 @@ links.forEach((link) => {
   const aTag = link.querySelector('a');
   aTag?.addEventListener('click', (e) => {
     e.preventDefault();
-    document.querySelector(e?.target?.getAttribute('href')).scrollIntoView({
+    const targetId = e?.target?.getAttribute('href');
+    document.querySelector(targetId).scrollIntoView({
       behavior: 'smooth'
     });
 
+    history.pushState(null, '', targetId);
+
     const mediaQuery = window.matchMedia('(max-width: 1023px)');
-    console.log(mediaQuery.matches);
 	  if(!mediaQuery.matches) {
       window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
     }
