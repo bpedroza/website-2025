@@ -1,10 +1,10 @@
 import ishowcase from '../assets/ishowcase.svg';
-import healthEndeavors from '../assets/healthendeavors.png';
+import healthEndeavors from '../assets/healthendeavors.webp';
 import avweb from '../assets/avweb.webp';
 
-import jspkce from '../assets/js-pkce-preview.jpeg';
-import evap from '../assets/evap-preview.jpeg';
-import website from '../assets/website-2025.jpeg';
+import jspkce from '../assets/js-pkce-preview.webp';
+import evap from '../assets/evap-preview.webp';
+import website from '../assets/website-2025.webp';
 
 const links = [
   {
@@ -94,14 +94,14 @@ const projects = [
     name: 'js-pkce',
     image: jspkce,
     url: 'https://github.com/bpedroza/js-pkce',
-    description: 'An open source project I built to help make oAuth2 PKCE flow easier.',
+    description: 'An open source project I built to help make OAuth2 PKCE flow easier.',
     tags: ['typescript', 'jest', 'npm']
   },
   {
     name: 'Evaporative Cooler Calculator',
     image: evap,
     url: 'https://github.com/bpedroza/pwa-evap-calculator',
-    description: 'A fun little PWA that to tell me how cool my evaporative cooler would get my house',
+    description: 'A fun little PWA anyone can use to predict how cool an evaporative cooler can make their house.',
     tags: ['vuejs', 'vuetify', 'pwa']
   }
 ];
