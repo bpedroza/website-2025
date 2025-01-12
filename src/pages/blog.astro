@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import BlogLayout from "../layouts/BlogLayout.astro";
+const posts = await getCollection('blog');
+---
+
+<BlogLayout title="Blog Posts" description="Bryan Pedroza's Blog">
+  <nav>
+    <ul class="menu bg-base-200 rounded-box">
+      {posts.map(post => (
+        <li>
+          <div class="flex justify-between">
+            <a href={`/blog/${post.id}`}>{post.data.title}</a>
+            <span>
+              {post.data.datePublished.toDateString()}
+            </span>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </nav>
+  
+</BlogLayout>

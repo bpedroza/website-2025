@@ -1,0 +1,30 @@
+h1 {
+  font-size: 38px;
+  color: #fff;
+}
+h2 {
+  font-size: 32px;
+  color: #fff;
+}
+h3 {
+  font-size: 28px;
+  color: #fff;
+}
+h4 {
+  font-size: 22px;
+  color: #fff;
+}
+
+body {
+  font-size: 18px;
+}
+
+h2, h3, h4, ol, p {
+  margin-bottom: 1rem;
+}
+
+.blog-container ol {
+  list-style-type:decimal-leading-zero;
+  padding-left: 30px;
+}
+

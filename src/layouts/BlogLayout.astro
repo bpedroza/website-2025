@@ -1,0 +1,47 @@
+---
+import '../css/blog.css';
+import logo from '../assets/logo.svg';
+import Socials from "../components/Socials.astro";
+const { description, title } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href={logo.src} />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<div class="navbar bg-base-100 fixed top-0">
+			<div class="flex-1">
+				<a class="btn btn-ghost text-xl" href="/" title="Home link">
+					<span class="text-accent">Bryan</span> <span class="text-white">Pedroza</span>
+				</a>
+			</div>
+			<div class="flex-none">
+				<Socials />
+			</div>
+		</div>
+		<div class="blog-container pb-12 pt-20">
+			<h1 class="mb-8">{title}</h1>
+			<slot />
+		</div>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.blog-container {
+		width: 90%;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+</style>

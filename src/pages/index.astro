@@ -5,8 +5,6 @@ import Socials from "../components/Socials.astro";
 import About from "../components/About.astro";
 import WorkHistory from "../components/WorkHistory.astro";
 import Portfolio from "../components/Portfolio.astro";
-import doubleChevron from "../assets/doubleChevron.svg";
-import astroLogo from "../assets/astro.svg";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -39,7 +37,9 @@ import Layout from "../layouts/Layout.astro";
 					<div
 						class="lg:fixed left-0 lg:mt-10 lg:w-screen flex justify-center"
 					>
-						<Socials />
+						<div class="ml-1 mt-8">
+							<Socials />
+						</div>
 					</div>
 				</div>
 			</aside>
