@@ -12,8 +12,8 @@ export async function getStaticPaths() {
 // 2. For your template, you can get the entry directly from the prop
 const { post } = Astro.props;
 const { Content } = await render(post);
-const { title, description, datePublished } = post.data;
+const { title, subTitle, description, datePublished } = post.data;
 ---
-<BlogLayout title={title} description={description} published={datePublished.toDateString()}>
+<BlogLayout title={title} subTitle={subTitle} description={description} published={datePublished.toDateString()}>
   <Content />
 </BlogLayout>

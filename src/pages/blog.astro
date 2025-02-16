@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BlogLayout from "../layouts/BlogLayout.astro";
-const posts = await getCollection('blog');
+const posts = (await getCollection('blog')).sort((a, b) => b.data.datePublished.valueOf() - a.data.datePublished.valueOf());
 ---
 
 <BlogLayout title="Blog Posts" description="Bryan Pedroza's Blog">
@@ -9,12 +9,12 @@ const posts = await getCollection('blog');
     <ul class="menu bg-base-200 rounded-box">
       {posts.map(post => (
         <li>
-          <div class="flex justify-between">
-            <a href={`/blog/${post.id}`}>{post.data.title}</a>
+          <a class="flex justify-between" title={post.data.title} href={`/blog/${post.id}`}>
+            <span>{post.data.title}</span>
             <span>
               {post.data.datePublished.toDateString()}
             </span>
-          </div>
+          </a>
         </li>
       ))}
     </ul>

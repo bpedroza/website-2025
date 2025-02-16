@@ -28,3 +28,7 @@ h2, h3, h4, ol, p {
   padding-left: 30px;
 }
 
+a {
+  text-decoration: underline;
+  color: #fff;
+}

@@ -2,11 +2,6 @@ export const animateDesktop = (scrollPos, el) => {
   const scrollProgress = getScrollProgress(scrollPos);
   const isScrolledBottom = scrollProgress === 1;
 
-  if(scrollPos % 3 !== 0 && !isScrolledBottom) {
-    //try to reduce the workload a bit.
-    return;
-  }
-
   const newSkewX = getNewPosition(12, 0, scrollProgress);
   const newSkewY = getNewPosition(-5, 0, scrollProgress);
   const newScale = getNewPosition(0.75, 1, scrollProgress);
