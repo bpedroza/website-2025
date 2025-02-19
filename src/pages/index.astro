@@ -18,7 +18,14 @@ import Layout from "../layouts/Layout.astro";
 					<Hero />
 					<Nav />
 					<div
-						class="lg:fixed lg:block hidden lg:w-screen left-0 text-center text-slate-400"
+						class="lg:fixed left-0 lg:w-screen flex justify-center"
+					>
+						<div class="ml-1 mt-8">
+							<Socials />
+						</div>
+					</div>
+					<div
+						class="lg:fixed lg:block hidden lg:w-screen lg:mt-24 left-0 text-center text-slate-400"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -33,13 +40,6 @@ import Layout from "../layouts/Layout.astro";
 								stroke-linejoin="round"
 								d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5"></path>
 						</svg>
-					</div>
-					<div
-						class="lg:fixed left-0 lg:mt-10 lg:w-screen flex justify-center"
-					>
-						<div class="ml-1 mt-8">
-							<Socials />
-						</div>
 					</div>
 				</div>
 			</aside>
