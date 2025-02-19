@@ -1,5 +1,5 @@
 export const animateDesktop = (scrollPos, el) => {
-  const scrollProgress = getScrollProgress(scrollPos);
+  const scrollProgress = Math.min(1, getScrollProgress(scrollPos));
   const isScrolledBottom = scrollProgress === 1;
 
   const newSkewX = getNewPosition(12, 0, scrollProgress);
