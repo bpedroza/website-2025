@@ -45,5 +45,5 @@ function getNewPosition(startPos, endPos, scrollProgress) {
 function getScrollProgress(scrollPos) {
   const maxScroll = document.body.scrollHeight - window.innerHeight;
   
-  return scrollPos / maxScroll;
+  return Math.ceil(scrollPos) / maxScroll;
 }
